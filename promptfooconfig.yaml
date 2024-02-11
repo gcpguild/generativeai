@@ -1,0 +1,25 @@
+prompts: [prompts.txt]
+providers:
+  - exec:python model_reply.py
+
+tests:
+  - description: "Validate SID Entity Recognition"
+    vars:
+      prompt: "Explain the role of a Customer in the context of CRM."
+    assert:
+      - type: contains
+        value: "CRM"
+
+  - description: "Check SID Process Understanding"
+    vars:
+      prompt: "Describe the process of creating a trouble ticket."
+    assert:
+      - type: contains
+        value: "trouble ticket"
+
+  - description: "Test SID Model Integration"
+    vars:
+      prompt: "What are the main components of the Product Catalog?"
+    assert:
+      - type: contains
+        value: "Product Catalog"
